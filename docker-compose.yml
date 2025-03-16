@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  file-processor:
+    build: .
+    volumes:
+      # Map host directories to container paths using environment variables
+      - ${WATCH_DIR}:/ftp
+      - ${DEST_DIR}:/dest
+    environment:
+      - WATCH_DIR=${WATCH_DIR}
+      - DEST_DIR=${DEST_DIR}
+      - OWNER=${OWNER}
+      - PERMS=${PERMS}
+      - STABLE_INTERVAL=${STABLE_INTERVAL}
+    restart: always
