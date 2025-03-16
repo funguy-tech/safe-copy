@@ -30,9 +30,9 @@ inotifywait -m -e close_write,moved_to "$WATCH_DIR" --format "%f" | while read F
     
     if [ "$SIZE1" -eq "$SIZE2" ]; then
         echo "Processing file: $FILENAME"
+        chown "$OWNER" "$FILE"
+        chmod "$PERMS" "$FILE"
         mv "$FILE" "$DEST_DIR"
-        chown "$OWNER" "$DEST_DIR/$(basename "$FILE")"
-        chmod "$PERMS" "$DEST_DIR/$(basename "$FILE")"
         echo "Processed $FILENAME successfully."
     else
         echo "File $FILENAME is still being written to. Skipping."
