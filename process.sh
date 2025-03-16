@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Use environment variables with defaults if not provided
-WATCH_DIR="${WATCH_DIR:-/ftp}"
-DEST_DIR="${DEST_DIR:-/dest}"
+WATCH_DIR="/ftp"
+DEST_DIR="/dest"
 OWNER="${OWNER:-newuser:newgroup}"
 PERMS="${PERMS:-0644}"
 STABLE_INTERVAL="${STABLE_INTERVAL:-5}"
